@@ -1,0 +1,12 @@
+---
+# tasks file for centos
+   - name: installation de packages
+     yum: name={{ item }} update_cache=yes state=latest
+     with_items:
+      - vim
+      - git
+      - zsh
+   - name: installation du playbook centos
+     include: apache.yaml
+   - name: copie de fichier
+     copy: src=testcopie.txt dest=/etc/tmp
